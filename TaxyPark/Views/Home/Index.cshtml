@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Заказ такси";
+}
+
+
+<div ng-controller="ClientOrderController">
+  
+  <form name="form" role="form">
+    <md-card layout-align="center center">
+        <md-card-content>
+          <div layout="column">
+            <div layout="column">
+              <md-input-container>
+                <label>Ваше имя</label>
+                <input ng-model="newOrder.ClientName" required>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Ваш телефон</label>
+                <input ng-model="newOrder.ClientPhoneNumber" required>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Откуда</label>
+                <input ng-model="newOrder.FromPoint">
+              </md-input-container>
+              <md-input-container>
+                <label>Куда</label>
+                <input ng-model="newOrder.ToPoint">
+              </md-input-container>
+
+            </div>
+          </div>
+          <md-card-actions layout="column">
+            <span flex></span>
+            <md-button ng-click="CreateOrder(newOrder)" ng-disabled="form.$invalid">
+              Отправить
+            </md-button>
+          </md-card-actions>
+        </md-card-content>
+  </md-card>
+  </form>
+</div>

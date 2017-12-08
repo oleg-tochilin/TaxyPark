@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+  <md-dialog aria-label="Редактирование пользователя {{user.Id}}">
+    <form ng-cloak >
+
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Редактирование пользователя {{user.Id}}</h2>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="cancel()">
+            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Закрыть"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <md-dialog-content>
+        <div class="md-dialog-content">
+          <md-card>
+            <md-card-content>
+                <div layout="column">
+                  <div layout="row">
+                    <md-input-container>
+                      <label>Логин</label>
+                      <input ng-model="user.Login" readonly>
+                    </md-input-container>
+
+                    <md-input-container>
+                      <label>Имя</label>
+                      <input ng-model="user.Name">
+                    </md-input-container>
+                   </div>
+
+
+                    <md-select ng-model="user.Role" placeholder="Статус">
+                      <md-option ng-repeat="s in roles" value="{{s.Name}}">{{s.Name}}</md-option>
+                    </md-select>
+
+
+                  </div>
+                
+                </md-card-content>
+          </md-card>
+          </div>
+</md-dialog-content>
+
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="answer(user)">
+          Сохранить
+        </md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog>

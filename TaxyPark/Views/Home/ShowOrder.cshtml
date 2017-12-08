@@ -1,0 +1,22 @@
+﻿
+@{
+  ViewBag.Title = "Заказ №" + @ViewBag.Order.Id;
+}
+
+
+<section ng-controller="ClientOrderController" layout="column" layout-sm="column" layout-align="center center" layout-wrap style="margin:30px;">
+  
+  <div style="margin:5px;">
+    @ViewBag.Order.ClientName, Ваш заказ  № <b>@ViewBag.Order.Id</b> находится в статусе "<b>@ViewBag.StatusName"</b>
+  </div>
+
+  @if (ViewBag.DriverName != null)
+  {
+  <p>Ваш водитель <b>@ViewBag.DriverName</b></p>
+  }
+
+  @if(ViewBag.Order.StatusId < 5)
+  {
+    <md-button class="md-raised" ng-click="CancelOrder('@ViewBag.Order.ExternalId')">Отменить</md-button>
+  }
+</section>

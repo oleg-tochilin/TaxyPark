@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Вход";
+}
+
+
+<md-card layout-align="center center">
+  <md-card-content>
+    <div  ng-controller="LoginController">
+      <form name="form" ng-submit="vm.login()" role="form">
+        <span class="help-block">{{login.Message}}</span>
+        <div class="form-group">
+          <label for="username">Логин</label>
+          <input type="text" name="username" class="form-control" ng-model="login.Login" required />
+          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Введите имя пользователя</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" name="password" class="form-control" ng-model="login.Password" required />
+          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Введите пароль</span>
+        </div>
+        <div class="form-actions">
+          <md-button ng-disabled="form.$invalid" ng-click="Login(login)">Войти</md-button>
+          <a href="/Account/Register" class="btn btn-link">Регистрация</a>
+        </div>
+      </form>
+    </div>
+  </md-card-content>
+</md-card>
+

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Scripts/angular.min.js")
+    @Scripts.Render("~/Scripts/angular-animate.min.js")
+    @Scripts.Render("~/Scripts/angular-aria.min.js")
+    @Scripts.Render("~/Scripts/angular-material.min.js")
+    @Scripts.Render("~/Scripts/ui-grid.min.js")
+
+    @Styles.Render("~/Content/ui-grid.css")
+    @Styles.Render("~/Content/angular-material/angular-material.min.css")
+
+</head>
+<body>
+    @Scripts.Render("~/Scripts/app.js")
+
+    <div layout="column">
+  <md-toolbar layout="row" class="main-toolbar md-small-tall">
+
+      
+    <span style="margin:20px;">@ViewBag.Title</span>
+        <span flex></span>
+        @if (Request.IsAuthenticated)
+        {
+          <span style="margin:20px;">
+            <b>@User.Identity.Name</b>
+            <a href="/Account/Logout">выйти</a>
+          </span>
+
+        }
+        else
+        {
+          <span style="margin:20px;">
+            <a href="/Account/Login">войти</a>
+          </span>
+        }
+  </md-toolbar>
+    <div class="container body-content">
+      @RenderBody()
+      <footer>
+        <p>&copy; @DateTime.Now.Year - Такси</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+  <md-dialog aria-label="Редактирование статуса заказа {{order.Id}}">
+    <form ng-cloak >
+
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Редактирование статуса заказа {{order.Id}}</h2>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="cancel()">
+            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Закрыть"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <md-dialog-content>
+        <div class="md-dialog-content">
+          <md-card>
+            <md-card-content>
+                <div layout="column">
+                  <div layout="row">
+                    <md-input-container>
+                      <label>Откуда</label>
+                      <input ng-model="order.FromPoint" readonly>
+                    </md-input-container>
+
+
+                    <md-input-container>
+                      <label>Куда</label>
+                      <input ng-model="order.ToPoint" readonly>
+                    </md-input-container>
+
+                   </div>
+
+
+                    <md-select ng-model="order.StatusId" placeholder="Статус">
+                      <md-option ng-repeat="s in statuses" value="{{s.Id}}">{{s.Name}}</md-option>
+
+                    </md-select>
+
+
+
+                  </div>
+                
+                </md-card-content>
+          </md-card>
+          </div>
+</md-dialog-content>
+
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="answer(order)">
+          Сохранить
+        </md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog>
